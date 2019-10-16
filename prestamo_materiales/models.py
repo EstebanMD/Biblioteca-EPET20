@@ -4,6 +4,9 @@ class Material(models.Model):
 	nombre_material = models.CharField(max_length=50)
 	nro_inventario = models.IntegerField()
 
+	def __str__(self):
+		return 'Material %s' % (self.nombre_material)
+
 class Pedido(models.Model):
 	fecha = models.DateField()
 	nombre_alumno = models.CharField(max_length=50)
@@ -12,3 +15,6 @@ class Pedido(models.Model):
 	estado_producto_entregado = models.CharField(max_length=50)
 	estado_producto_devuelto = models.CharField(max_length=50)
 	cantidad_materiales = models.IntegerField()
+
+	def __str__(self):
+		return 'Pedido %s' % (self.apellido_alumno)
