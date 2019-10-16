@@ -5,7 +5,7 @@ class Material(models.Model):
 	nro_inventario = models.IntegerField()
 
 	def __str__(self):
-		return 'Material %s' % (self.nombre_material)
+		return '%s' % (self.nombre_material)
 
 class Pedido(models.Model):
 	fecha = models.DateField()
@@ -17,4 +17,4 @@ class Pedido(models.Model):
 	cantidad_materiales = models.IntegerField()
 
 	def __str__(self):
-		return 'Pedido %s' % (self.apellido_alumno)
+		return 'Pedido de %s' % (self.apellido_alumno)
