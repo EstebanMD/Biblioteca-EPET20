@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from . import SERIALIZATION_MODULES
+from . import models
 
 class MaterialSerializer(serializers.ModelSerializer):
 	class Meta:
