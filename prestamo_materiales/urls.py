@@ -6,4 +6,5 @@ urlpatterns = [
 	path('<pk>/', 
 		views.RecuperarActualizarEliminarPedido.as_view(),
 		name='pedido_detalle'),
+	path('sign_in', views.index, name='index'),
 ]
