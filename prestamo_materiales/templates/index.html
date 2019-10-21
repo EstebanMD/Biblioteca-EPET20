@@ -1,3 +1,44 @@
 {% extends 'base.html' %}
 
-//{% load crispy_forms_tags %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}Sign in{% endblock titulo %} %}
+
+{% block contenido %}
+<div class="container">
+	<div class="row">
+		<div class="col mt-3">
+			{% if form.errors %}
+				<p class="lead">Nombre de usuario y contraseña incorrectos.</p>
+			{% endif %}
+
+			{% if next %}
+				{% if user.is_authenticated %}
+					<p>No tiene acceso a esta página.</p>
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col mt-3">
+			<form method="post" action="{% url 'principal' %}">
+				{% csrf_token %}
+				<div class="row">
+					<div class="col-6">
+						{{ form.username|as_crispy_field }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						{{ form.password|as_crispy_field }}
+					</div>
+				</div>
+				<div>
+					<input class="btn btn-success" type="submit" value="Ingresar" />
+					<input type="hidden" name="next" value="{{ next }}" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
