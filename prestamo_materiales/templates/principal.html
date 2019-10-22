@@ -1,1 +1,8 @@
 {% extends 'base.html' %}
+
+{% block titulo %}Biblioteca - Pedidos{% endblock titulo %}
+
+{% block contenido %}
+	<h1>Listado de pedidos</h1>
+	{% for Pedido in Pedidos %} {{ Pedido }}{% endfor %}
+{% endblock %}

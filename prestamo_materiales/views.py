@@ -5,6 +5,7 @@ from rest_framework import generics
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
+from .models import Pedido
 
 from . import models
 from . import serializers
@@ -23,3 +24,5 @@ class IndexView(TemplateView):# Templates, sacado de distintas paginas y de su r
 
 class ListarPedidos(TemplateView): #No anda
 	template_name = 'principal.html'
+	Pedido.objects.order_by('id')
+	#queryset = models.Pedido.objects.all()

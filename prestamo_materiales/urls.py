@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import IndexView
+from .views import IndexView, ListarPedidos
 
 app_name = 'prestamo_materiales'
 urlpatterns = [
@@ -9,5 +9,5 @@ urlpatterns = [
 		views.RecuperarActualizarEliminarPedido.as_view(),
 		name='pedido_detalle'),
 	path('sign_in', IndexView.as_view(), name='index'),
-	path('', ListarPedidos.as_view(), name='listado_pedidos'),
+	path('listar', ListarPedidos.as_view(), name='listado_pedidos'),
 ]
