@@ -7,6 +7,13 @@ class Material(models.Model):
 	def __str__(self):
 		return '%s' % (self.nombre_material)
 
+	class Meta:
+		verbose_name = 'Material'
+		verbose_name_plural = 'Materiales'
+		ordering = ['nombre_material']
+
+
+
 class Pedido(models.Model):
 	fecha = models.DateField()
 	nombre_alumno = models.CharField(max_length=50)

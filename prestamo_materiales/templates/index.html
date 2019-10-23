@@ -2,43 +2,21 @@
 
 {% load crispy_forms_tags %}
 
-{% block titulo %}Sign in{% endblock titulo %} %}
+{% block titulo %}Biblioteca{% endblock titulo %}
 
 {% block contenido %}
-<div class="container">
-	<div class="row">
-		<div class="col mt-3">
-			{% if form.errors %}
-				<p class="lead">Nombre de usuario y contraseña incorrectos.</p>
-			{% endif %}
-
-			{% if next %}
-				{% if user.is_authenticated %}
-					<p>No tiene acceso a esta página.</p>
-				{% endif %}
-			{% endif %}
-		</div>
-	</div>
-	<div class="row">
-		<div class="col mt-3">
-			<form method="post" action="{% url 'principal' %}">
-				{% csrf_token %}
-				<div class="row">
-					<div class="col-6">
-						{{ form.username|as_crispy_field }}
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-6">
-						{{ form.password|as_crispy_field }}
-					</div>
-				</div>
-				<div>
-					<input class="btn btn-success" type="submit" value="Ingresar" />
-					<input type="hidden" name="next" value="{{ next }}" />
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'prestamo_materiales:no_entregados' %}">Sin entregar</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'prestamo_materiales:listado_pedidos' %}">Pedidos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
 {% endblock %}

@@ -3,7 +3,6 @@
 #from rest_framework.response import Response
 from rest_framework import generics
 from django.views.generic import TemplateView
-from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from .models import Pedido
 
@@ -20,9 +19,15 @@ class RecuperarActualizarEliminarPedido(generics.RetrieveUpdateDestroyAPIView):#
 
 class IndexView(TemplateView):# Templates, sacado de distintas paginas y de su repositorio
 	template_name = 'index.html'
-	success_url = reverse_lazy ('templates/principal')
 
-class ListarPedidos(TemplateView): #No anda
-	template_name = 'principal.html'
+
+class ListarPedidos(TemplateView):
+	template_name = 'listado_pedidos.html'
 	Pedido.objects.order_by('id')
-	#queryset = models.Pedido.objects.all()
+
+	#success_url = reverse_lazy ('templates/principal')
+
+class PedidosSinEntregar(TemplateView):
+	template_name = 'no_entregados.html'
+	
+
