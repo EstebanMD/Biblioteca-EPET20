@@ -25,3 +25,8 @@ class Pedido(models.Model):
 
 	def __str__(self):
 		return 'Pedido de %s' % (self.apellido_alumno)
+
+	class Meta:
+		verbose_name = 'Pedido'
+		verbose_name_plural = 'Pedidos'
+		ordering = ['fecha']
