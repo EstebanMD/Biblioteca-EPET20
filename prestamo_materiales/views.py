@@ -5,7 +5,8 @@ from rest_framework import generics
 from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 from .models import Pedido
-
+from django.views.generic.edit import CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from . import models
 from . import serializers
 
@@ -30,4 +31,9 @@ class ListarPedidos(TemplateView):
 class PedidosSinEntregar(TemplateView):
 	template_name = 'no_entregados.html'
 	
-
+class PedidosCreate(LoginRequiredMixin, CreateView):
+	model = Pedido
+	fields = ['nombre_alumno']
+	template_name = 'prestamo_materiales/create_pedidos.html'
+	success_url = reverse_lazy('prestamo_materiales:index')
+		

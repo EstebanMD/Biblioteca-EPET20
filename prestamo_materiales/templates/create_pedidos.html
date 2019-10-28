@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block titulo %}Pregunta: create{% endblock titulo %}
+
+{% block contenido %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 mt-3">
+			<form action="" method="post">
+				{% csrf_token %}
+				{{ form|crispy }}
+				<input class="btn btn-sm btn-success" type="submit" value="Agregar pedido">
+			</form>
+			<p class="lead mt-3">(*) Campos obligatorios</p>
+		</div>
+	</div>
+</div>
+{% endblock contenido %}

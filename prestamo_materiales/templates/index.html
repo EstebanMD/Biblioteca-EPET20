@@ -5,18 +5,4 @@
 {% block titulo %}Biblioteca{% endblock titulo %}
 
 {% block contenido %}
-<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'prestamo_materiales:no_entregados' %}">Sin entregar</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'prestamo_materiales:listado_pedidos' %}">Pedidos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
 {% endblock %}
