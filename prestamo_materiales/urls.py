@@ -11,5 +11,5 @@ urlpatterns = [
 	path('listar', ListarPedidos.as_view(), name='listado_pedidos'),
 	path('', IndexView.as_view(), name='index'),
 	path('sin_entregar', PedidosSinEntregar.as_view(), name='no_entregados'),
-	path('crear', PedidosCreate.as_view(), name='pedidos_create')
+	path('crear/', PedidosCreate.as_view(), name='pedidos_create')
 ]

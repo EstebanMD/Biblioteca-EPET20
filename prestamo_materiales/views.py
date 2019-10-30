@@ -23,17 +23,20 @@ class IndexView(TemplateView):# Templates, sacado de distintas paginas y de su r
 
 
 class ListarPedidos(TemplateView):
+	model = Pedido
 	template_name = 'listado_pedidos.html'
 	Pedido.objects.order_by('id')
 
 	#success_url = reverse_lazy ('templates/principal')
 
 class PedidosSinEntregar(TemplateView):
+	model = Pedido
 	template_name = 'no_entregados.html'
 	
-class PedidosCreate(LoginRequiredMixin, CreateView):
+class PedidosCreate(CreateView):#LoginRequiredMixin
 	model = Pedido
-	fields = ['nombre_alumno']
-	template_name = 'prestamo_materiales/pedidos_create.html'
+	fields = ['fecha', 'nombre_alumno', 'apellido_alumno', 'material', 'estado_producto_entregado', 
+	'estado_producto_devuelto', 'cantidad_materiales']
+	template_name = 'pedidos_create.html'
 	success_url = reverse_lazy('prestamo_materiales:index')
 		
