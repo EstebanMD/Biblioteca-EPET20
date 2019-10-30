@@ -34,6 +34,6 @@ class PedidosSinEntregar(TemplateView):
 class PedidosCreate(LoginRequiredMixin, CreateView):
 	model = Pedido
 	fields = ['nombre_alumno']
-	template_name = 'prestamo_materiales/create_pedidos.html'
+	template_name = 'prestamo_materiales/pedidos_create.html'
 	success_url = reverse_lazy('prestamo_materiales:index')
 		
