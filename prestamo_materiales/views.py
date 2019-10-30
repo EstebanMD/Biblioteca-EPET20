@@ -2,11 +2,14 @@
 #from rest_framework.views import APIView
 #from rest_framework.response import Response
 from rest_framework import generics
-from django.views.generic import TemplateView
 from django.urls import reverse_lazy
-from .models import Pedido
+
+from django.views.generic import TemplateView
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from .models import Pedido
 from . import models
 from . import serializers
 
@@ -21,13 +24,10 @@ class RecuperarActualizarEliminarPedido(generics.RetrieveUpdateDestroyAPIView):#
 class IndexView(TemplateView):# Templates, sacado de distintas paginas y de su repositorio
 	template_name = 'index.html'
 
-
-class ListarPedidos(TemplateView):
+class ListarPedidos(ListView):
 	model = Pedido
 	template_name = 'listado_pedidos.html'
-	Pedido.objects.order_by('id')
-
-	#success_url = reverse_lazy ('templates/principal')
+	context_object_name = 'pedidos'
 
 class PedidosSinEntregar(TemplateView):
 	model = Pedido
@@ -40,3 +40,9 @@ class PedidosCreate(CreateView):#LoginRequiredMixin
 	template_name = 'pedidos_create.html'
 	success_url = reverse_lazy('prestamo_materiales:index')
 		
+class PedidosUpdate(UpdateView):
+	model = Pedido
+	fields = ['fecha', 'nombre_alumno', 'apellido_alumno', 'material', 'estado_producto_entregado', 
+	'estado_producto_devuelto', 'cantidad_materiales']
+	template_name = 'pedido_update.html'
+	context_object_name = 'pedidos'

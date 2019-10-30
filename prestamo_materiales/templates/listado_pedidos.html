@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col">
 			<table class="table text-center">
-				<thead>
+
 					<tr>
 						<th>#</th>
 						<th>Nombre alumno</th>
@@ -22,12 +22,10 @@
 						<th>Estado devuelto</th>
 						<th>Editar</th>
 					</tr>
-				</thead>
-				<tbody>
 					{% for pedido in pedidos %}
 					<tr>
 						<th>{{ pedido.id }}</th>
-						<th>{{ pedido.nombre_alumno }}</th>
+						<td>{{ pedido.nombre_alumno }}</td>
 						<td>{{ pedido.apellido_alumno }}</td>
 						<td>{{ pedido.fecha }}</td>
 						<td>{{ pedido.material }}</td>

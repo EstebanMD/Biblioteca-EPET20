@@ -8,5 +8,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', include('rest_framework.urls')),
     path('', include('prestamo_materiales.urls'))
-    #path('', )s
 ]
