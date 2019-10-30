@@ -22,7 +22,7 @@ class Pedido(models.Model):
 	fecha = models.DateField(help_text='Ingrese la fecha en que se realizao el pedido')
 	nombre_alumno = models.CharField(help_text='Ingrese nombre del alumno que realiza el pedido', max_length=50)
 	apellido_alumno = models.CharField(help_text='Ingrese el apellido del alumno', max_length=50)
-	material = models.ForeignKey(Material, on_delete=models.CASCADE, help_text='Ingrese material solicitado')
+	material = models.CharField(help_text='Ingrese material solicitado', max_length=70)
 	estado_producto_entregado = models.CharField(help_text='Ingrese el estado del producto entregado', 
 		choices=ESTADOS_MATERIAL, default='Buenas condiciones', max_length=50)
 	estado_producto_devuelto = models.CharField(help_text='Ingrese el estado del producto una vez este fue devuelto', 
