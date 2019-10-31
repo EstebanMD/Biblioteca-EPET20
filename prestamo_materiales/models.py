@@ -19,7 +19,7 @@ class Material(models.Model):
 
 
 class Pedido(models.Model):
-	fecha = models.DateField(help_text='Ingrese la fecha en que se realiza el pedido')
+	fecha = models.DateField(auto_now_add=True, help_text='Ingrese la fecha en que se realiza el pedido')
 	nombre_alumno = models.CharField(help_text='Ingrese nombre del alumno que realiza el pedido', max_length=50)
 	apellido_alumno = models.CharField(help_text='Ingrese el apellido del alumno', max_length=50)
 	material = models.CharField(help_text='Ingrese material solicitado', max_length=70)
