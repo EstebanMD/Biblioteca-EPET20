@@ -29,22 +29,26 @@ class ListarPedidos(ListView):
 	template_name = 'listado_pedidos.html'
 	context_object_name = 'pedidos'
 
-class PedidosSinEntregar(TemplateView):
+class PedidosSinEntregar(ListView):
 	model = Pedido
+	queryset = Pedido.objects.filter(devuelto=False)
 	template_name = 'no_entregados.html'
 	context_object_name = 'pedidos'
 	
 	
 class PedidosCreate(CreateView):#LoginRequiredMixin
 	model = Pedido
-	fields = ['nombre_alumno', 'apellido_alumno', 'material', 'estado_producto_entregado', 
-	'estado_producto_devuelto', 'cantidad_materiales'] #'fecha', 
+	fields = ['nombre_alumno', 'apellido_alumno', 'material', 'cantidad_materiales', 'estado_producto_entregado',
+	'devuelto', 'estado_producto_devuelto'] #'fecha', 
 	template_name = 'pedidos_create.html'
-	success_url = reverse_lazy('prestamo_materiales:index')
+	success_url = reverse_lazy('prestamo_materiales:listado_pedidos')
 		
 class PedidosUpdate(UpdateView):
 	model = Pedido
-	fields = ['nombre_alumno', 'apellido_alumno', 'material', 'estado_producto_entregado', 
-	'estado_producto_devuelto', 'cantidad_materiales'] #'fecha', 
+	fields = ['nombre_alumno', 'apellido_alumno', 'material', 'cantidad_materiales', 'estado_producto_entregado',
+	'devuelto', 'estado_producto_devuelto'] #'fecha', 
 	template_name = 'pedido_update.html'
 	context_object_name = 'pedidos'
+	success_url = reverse_lazy('prestamo_materiales:listado_pedidos')
+
+

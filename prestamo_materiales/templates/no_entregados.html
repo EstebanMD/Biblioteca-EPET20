@@ -4,4 +4,42 @@
 
 {% block titulo %}Biblioteca- Sin entregar{% endblock titulo %}
 
-
+{% block contenido %}
+<div class="col mt-2 mb-2">
+	<h1>Listado de pedidos no devueltos</h1>
+</div>
+	<div class="row">
+		<div class="col">
+			<table class="table text-center">
+					<tr>
+						<th>#</th>
+						<th>Nombre alumno</th>
+						<th>Apellido alumno</th>
+						<th>Fecha</th>
+						<th>Material</th>
+						<th>Cantidad materiales</th>
+						<th>Estado entregado</th>
+						<th>Devuelto</th>
+						<th>Estado devuelto</th>
+						<th>Editar</th>
+					</tr>
+					{% for pedido in pedidos %}
+					<tr>
+						<th>{{ pedido.id }}</th>
+						<td>{{ pedido.nombre_alumno }}</td>
+						<td>{{ pedido.apellido_alumno }}</td>
+						<td>{{ pedido.fecha }}</td>
+						<td>{{ pedido.material }}</td>
+						<td>{{ pedido.cantidad_materiales }}</td>
+						<td>{{ pedido.estado_producto_entregado }}</td>
+						<td>{{ pedido.devuelto }}</td>
+						<td>{{ pedido.estado_producto_devuelto }}</td>
+						<td><a href="{% url 'prestamo_materiales:pedido_update' pedido.id %}"><i class="fas fa-pencil-alt"></i></a></td>
+						
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

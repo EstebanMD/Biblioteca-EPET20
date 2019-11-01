@@ -14,13 +14,14 @@
 					<tr>
 						<th>#</th>
 						<th>Nombre alumno</th>
-						<th>Apellido alumno</th>
+						<th>Apellido alumno</th>i
 						<th>Fecha</th>
 						<th>Material</th>
-						<th>Estado entregado</th>
 						<th>Cantidad materiales</th>
+						<th>Estado entregado</th>
+						<th>Devuelto</th>
 						<th>Estado devuelto</th>
-						<th>Editar</th>
+						<th>Entrega</th>
 					</tr>
 					{% for pedido in pedidos %}
 					<tr>
@@ -29,11 +30,11 @@
 						<td>{{ pedido.apellido_alumno }}</td>
 						<td>{{ pedido.fecha }}</td>
 						<td>{{ pedido.material }}</td>
-						<td>{{ pedido.estado_producto_entregado }}</td>
 						<td>{{ pedido.cantidad_materiales }}</td>
+						<td>{{ pedido.estado_producto_entregado }}</td>
+						<td>{{ pedido.devuelto|yesno:'Sí,No' }}</td>
 						<td>{{ pedido.estado_producto_devuelto }}</td>
-						<td><a href="{% url 'prestamo_materiales:pedido_update' pedido.id %}"><i class="fas fa-pencil-alt"></i></a></td>
-						
+						<td><a href="{% url 'prestamo_materiales:pedido_update' pedido.id %}">Sí</a></td>
 					</tr>
 					{% endfor %}
 				</tbody>

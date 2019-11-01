@@ -12,5 +12,5 @@ urlpatterns = [
 	path('', IndexView.as_view(), name='index'),
 	path('sin_entregar', PedidosSinEntregar.as_view(), name='no_entregados'),
 	path('crear/', PedidosCreate.as_view(), name='pedidos_create'),
-	path('actualizar/<int:id>/', PedidosUpdate.as_view(), name='pedido_update')
+	path('actualizar/<int:pk>/', PedidosUpdate.as_view(), name='pedido_update')
 ]
