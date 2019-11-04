@@ -45,8 +45,8 @@ class PedidosCreate(CreateView):#LoginRequiredMixin
 		
 class PedidosUpdate(UpdateView):
 	model = Pedido
-	fields = ['nombre_alumno', 'apellido_alumno', 'material', 'cantidad_materiales', 'estado_producto_entregado',
-	'devuelto', 'estado_producto_devuelto'] #'fecha', 
+	fields = [
+	'devuelto', 'estado_producto_devuelto']#'nombre_alumno', 'apellido_alumno', 'material', 'cantidad_materiales', 'estado_producto_entregado',
 	template_name = 'pedido_update.html'
 	context_object_name = 'pedidos'
 	success_url = reverse_lazy('prestamo_materiales:listado_pedidos')

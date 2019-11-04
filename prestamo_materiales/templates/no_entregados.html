@@ -16,12 +16,14 @@
 						<th>Nombre alumno</th>
 						<th>Apellido alumno</th>
 						<th>Fecha</th>
+						<th>Horario Entrega</th>
 						<th>Material</th>
 						<th>Cantidad materiales</th>
 						<th>Estado entregado</th>
 						<th>Devuelto</th>
 						<th>Estado devuelto</th>
-						<th>Editar</th>
+						<th>Hora devolucion</th>
+						<th>Entregar</th>
 					</tr>
 					{% for pedido in pedidos %}
 					<tr>
@@ -29,12 +31,14 @@
 						<td>{{ pedido.nombre_alumno }}</td>
 						<td>{{ pedido.apellido_alumno }}</td>
 						<td>{{ pedido.fecha }}</td>
+						<td>{{ pedido.hora }}</td>
 						<td>{{ pedido.material }}</td>
 						<td>{{ pedido.cantidad_materiales }}</td>
 						<td>{{ pedido.estado_producto_entregado }}</td>
 						<td>{{ pedido.devuelto }}</td>
 						<td>{{ pedido.estado_producto_devuelto }}</td>
-						<td><a href="{% url 'prestamo_materiales:pedido_update' pedido.id %}"><i class="fas fa-pencil-alt"></i></a></td>
+						<td>{{ pedido.horario_devolucion }}</td>
+						<td><a href="{% url 'prestamo_materiales:pedido_update' pedido.id %}">Sí</a></td>
 						
 					</tr>
 					{% endfor %}
