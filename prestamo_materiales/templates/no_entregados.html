@@ -22,7 +22,6 @@
 						<th>Estado entregado</th>
 						<th>Devuelto</th>
 						<th>Estado devuelto</th>
-						<th>Hora devolucion</th>
 						<th>Entregar</th>
 					</tr>
 					{% for pedido in pedidos %}
@@ -35,9 +34,8 @@
 						<td>{{ pedido.material }}</td>
 						<td>{{ pedido.cantidad_materiales }}</td>
 						<td>{{ pedido.estado_producto_entregado }}</td>
-						<td>{{ pedido.devuelto }}</td>
+						<td>{{ pedido.devuelto|yesno:'Sí,No' }}</td>
 						<td>{{ pedido.estado_producto_devuelto }}</td>
-						<td>{{ pedido.horario_devolucion }}</td>
 						<td><a href="{% url 'prestamo_materiales:pedido_update' pedido.id %}">Sí</a></td>
 						
 					</tr>

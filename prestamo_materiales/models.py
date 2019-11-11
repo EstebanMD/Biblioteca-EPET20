@@ -14,7 +14,7 @@ class Material(models.Model):
 	class Meta:
 		verbose_name = 'Material'
 		verbose_name_plural = 'Materiales'
-		ordering = ['nombre_material']
+		#ordering = ['nombre_material']
 
 class Pedido(models.Model):
 	fecha = models.DateField(auto_now_add=True, help_text='Ingrese la fecha en que se realiza el pedido')
