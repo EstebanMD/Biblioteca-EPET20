@@ -37,7 +37,6 @@
 						<td>{{ pedido.devuelto|yesno:'Sí,No' }}</td>
 						<td>{{ pedido.estado_producto_devuelto }}</td>
 						<td><a href="{% url 'prestamo_materiales:pedido_update' pedido.id %}">Sí</a></td>
-						
 					</tr>
 					{% endfor %}
 				</tbody>

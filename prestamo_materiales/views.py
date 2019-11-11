@@ -38,8 +38,8 @@ class PedidosSinEntregar(ListView):
 	
 class PedidosCreate(CreateView):#LoginRequiredMixin
 	model = Pedido
-	fields = ['nombre_alumno', 'apellido_alumno', 'material', 'cantidad_materiales', 'estado_producto_entregado',
-	'devuelto', 'estado_producto_devuelto'] #'fecha', 
+	fields = ['nombre_alumno', 'apellido_alumno', 'material', 'cantidad_materiales', 'estado_producto_entregado'
+	] #'fecha', 'devuelto', 'estado_producto_devuelto'
 	template_name = 'pedidos_create.html'
 	success_url = reverse_lazy('prestamo_materiales:listado_pedidos')
 		
