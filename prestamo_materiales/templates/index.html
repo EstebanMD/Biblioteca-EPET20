@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
+{% load staticfiles %}
+
 
 {% block titulo %}Biblioteca{% endblock titulo %}
 {% block contenido %}
-<button type="button" class="btn btn-secondary btn-lg btn-block"><a style="color:#FFFFFF;" href="{% url 'prestamo_materiales:listado_pedidos' %}">Ver Lista de Pedidos</a></button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Ver lista de pedidos sin entregar</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Crear Pedido</button>
+<div style="background-image: url('/static/images/{% static "fondo" %}');">
+<a href="{% url 'prestamo_materiales:listado_pedidos' %}"><button type="button" class="btn btn-secondary btn-lg btn-block">Ver Lista de Pedidos</button></a>
+<hr />
+<a href="{% url 'prestamo_materiales:no_entregados' %}"><button type="button" class="btn btn-secondary btn-lg btn-block">Ver lista de pedidos sin entregar</button></a>
+<hr />
+<a href="{% url 'prestamo_materiales:pedidos_create' %}"><button type="button" class="btn btn-primary btn-lg btn-block">Crear Pedido</button></a>
+</div>
 {% endblock %}
